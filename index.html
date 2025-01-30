@@ -211,7 +211,7 @@
 
     <div class="columns is-centered">
 
-      <!-- Visual Effects. -->
+      <!--Workspace. -->
       <div class="column">
         <div class="content">
           <h3 class="title is-4">Workspaces</h3>
@@ -223,16 +223,14 @@
           alt="Interpolate start reference image."/>
         </div>
       </div>
-      <!--/ Visual Effects. -->
 
-      <!-- Matting. -->
+      <!--Planning results: success-rate graph. -->
       <div class="column">
         <h3 class="title is-4">Planning Results vs. Benchmarks</h3>
         <div class="columns is-centered">
           <div class="column content">
             <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring
-              samples that fall outside of a bounding box during rendering.
+              Time vs. success rate and vs. planning cost of SIMPNet compared to benchmark planners.
             </p>
             <img src="./static/images/time_cost-success1.png"
             class="interpolation-image"
@@ -247,44 +245,32 @@
     <!-- Animation. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Animation</h2>
+        <h2 class="title is-3">Real-world Deployment</h2>
 
         <!-- Interpolating. -->
-        <h3 class="title is-4">Interpolating states</h3>
+        <h3 class="title is-4">SIMPNet versus Benchmark Planners</h3>
         <div class="content has-text-justified">
           <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
+            Experimental evaluation and comparison of planned paths by SIMPNet and some baseline planners in a complex environment:
+            Bi-RRT (Bi-directional RRT), IRRT* (Informed-RRT*), and MPNet (Motion Planning Networks). RRT 
+            completes the path in 32 seconds with a planning cost of 9.32. Bi-RRT plans in 9.44 seconds with a planning cost of 9.02.
+            IRRT* takes 500 seconds, achieving a cost of 4.01 MPNet completes the path in 218 seconds with a planning cost of 11.3.
+            SIMPNet plans the path in 5.81 seconds with a planning cost of 8.08.
           </p>
-        </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_start.jpg"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
-          </div>
-          <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">
-              Loading...
+          <div class="columns is-centered">
+            <div class="column is-full-width">
+              <img src="./static/images/Planning .png"
+                   class="interpolation-image"
+                   alt="Interpolate start reference image."/>
+              <p align="center">Comparison of real-time deployment of SIMPNet and benchmark planners.</p>
             </div>
-            <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
-                   step="1" min="0" max="100" value="0" type="range">
-          </div>
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_end.jpg"
-                 class="interpolation-image"
-                 alt="Interpolation end reference image."/>
-            <p class="is-bold">End Frame</p>
           </div>
         </div>
         <br/>
         <!--/ Interpolating. -->
 
         <!-- Re-rendering. -->
-        <h3 class="title is-4">Re-rendering the input video</h3>
+        <h3 class="title is-4">Planning Videos</h3>
         <div class="content has-text-justified">
           <p>
             Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
