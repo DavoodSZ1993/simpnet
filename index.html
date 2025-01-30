@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Challenges and Opportunities of Using Deep Learning in Safe-Critical Robotic Manipulator Planning.">
+        content="SIMPNet: Spatial-informed Motion Planning Network.">
   <meta name="keywords" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Challenges and Opportunities of Using Deep Learning in Safe-Critical Robotic Manipulator Planning</title>
+  <title>SIMPNet: Spatial-informed Motion Planning Network.</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -50,54 +50,19 @@
       <span aria-hidden="true"></span>
     </a>
   </div>
-  <!--
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://keunhong.com">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
-      </a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More Research
-        </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://hypernerf.github.io">
-            HyperNeRF
-          </a>
-          <a class="navbar-item" href="https://nerfies.github.io">
-            Nerfies
-          </a>
-          <a class="navbar-item" href="https://latentfusion.github.io">
-            LatentFusion
-          </a>
-          <a class="navbar-item" href="https://photoshape.github.io">
-            PhotoShape
-          </a>
-        </div>
-      </div>
-    </div>
-
-  </div>-->
 </nav>
-
 
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Challenges and Opportunities of Using Deep Learning in Safe-Critical Robotic Manipulator Planning</h1>
+          <h1 class="title is-1 publication-title">SIMPNet: Spatial-informed Motion Planning Network.</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://zh.engr.tamu.edu/people-2/">Davood Soleymanzadeh</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://haosu-robotics.github.io/people">Ivan Lopez-Sanchez</a><sup>2</sup>,</span>
-            <span class="author-block">
-              <a href="https://mae.ncsu.edu/people/hao-su/">Hao Su</a><sup>2</sup>,
-            </span>
+              <a href="https://engineering.tamu.edu/civil/profiles/liang-xiao.html">Xiao Liang</a><sup>2</sup>,</span>
             <span class="author-block">
               <a href="https://engineering.tamu.edu/mechanical/profiles/zheng-minghui">Minghui Zheng</a><sup>1</sup>,
             </span>
@@ -112,15 +77,15 @@
           </head>
 
           <div class="is-size-5 author-affiliation">
-            <span class="author-block"><sup>1</sup> <a href="https://www.tamu.edu" target="_blank">Texas A&M University </a>,</span>
-            <span class="author-block"><sup>2</sup> <a href="https://www.ncsu.edu/" target="_blank">North Carolina State University</a></span>
+            <span class="author-block"><sup>1</sup> <a href="https://www.tamu.edu" target="_blank">J. Mike Walker '66 Department of Mechanical Engineering, Texas A&M University.</a>,</span>
+            <span class="author-block"><sup>2</sup> <a href="https://www.ncsu.edu/" target="_blank">Zachry Department of Civil and Environmental Engineering, Texas A&M University.</a></span>
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2011.12948"
+                <a href="https://arxiv.org/pdf/2408.12831"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -129,7 +94,7 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2011.12948"
+                <a href="https://arxiv.org/abs/2408.12831"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -139,12 +104,12 @@
               </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/google/nerfies"
+                <a href="https://github.com/DavoodSZ1993/SIMPNet"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
-                  <span>Paper List in the Survey</span>
+                  <span>Code</span>
                   </a>
               </span>
             </div>
@@ -163,13 +128,16 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          Deep learning frameworks have shown tremendous promise in planning for robotic manipulators. This is due to their fast inference capabilities,
-          inherent inductive biases, and proficiency in handling multi-modal distributions and datasets. However, there are also limitations associated 
-          with utilizing deep learning for robotic manipulator planning, including the need for expensive datasets and challenges to generalize to out-of-distribution
-          settings. This review explores state-of-the-art research on leveraging deep learning modules to replace or enhance traditional planning algorithms.
-          This paper evaluates the contributions of deep learning frameworks to traditional planning algorithms, emphasizing both the benefits and limitations
-          of these methods. Also, this paper explores future directions to provide a clear path for researchers planning to utilize these models for the planning
-          of robotic manipulators.
+          Current robotic manipulators require fast and efficient motion-planning algorithms to operate in cluttered environments.
+          State-of-the-art sampling-based motion planners struggle to scale to high-dimensional configuration spaces and are inefficient
+          in complex environments. This inefficiency arises because these planners utilize either uniform or hand-crafted sampling
+          heuristics within the configuration space. To address these challenges, we present the Spatial-informed Motion Planning Network (SIMPNet).
+          SIMPNet consists of a stochastic graph neural network (GNN)-based sampling heuristic for informed sampling within the configuration space.
+          The sampling heuristic of SIMPNet encodes the workspace embedding into the configuration space through a cross-attention mechanism.
+          It encodes the manipulator's kinematic structure into a graph, which is used to generate informed samples within the framework of
+          sampling-based motion planning algorithms. We have evaluated the performance of SIMPNet using a UR5e robotic manipulator operating
+          within simple and complex workspaces, comparing it against baseline state-of-the-art motion planners. The evaluation results show the
+          effectiveness and advantages of the proposed planner compared to the baseline planners.
         </div>
       </div>
     </div>
@@ -180,7 +148,7 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Video</h2>
         <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+          <iframe src="https://youtu.be/msmV1sUrcmA&amp;showinfo=0"
                   frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
       </div>
