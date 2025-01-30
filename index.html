@@ -121,6 +121,7 @@
   </div>
 </section>
 
+<!--Abstract and Introduction Video-->
 <section class="section">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
@@ -148,8 +149,11 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Video</h2>
         <div class="publication-video">
-          <iframe src="https://youtu.be/msmV1sUrcmA&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          <p>A brief video introduction of SIMPNet.</p>
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/Revised-SIMPNet-II-Demo.mp4"
+                    type="video/mp4">
+          </video>
         </div>
       </div>
     </div>
@@ -157,9 +161,73 @@
   </div>
 </section>
 
-
 <section class="section">
   <div class="container is-max-desktop">
+    <!--Method:SIMPNet. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Method</h2>
+
+        <!-- Network Structure.-->
+        <h3 class="title is-4">SIMPNet's Sampling Heuristic Strucutre</h3>
+        <div class="content has-text-justified">
+          <p>
+            We use graph neural networks (GNNs) to incorporate the structure of the robotic manipulator's kinematic chain
+            into our proposed sampling heuristic. This approach makes our planner aware of the manipulator's articulated structure.
+            We also use an attention mechanism to condition the planning problem on workspace embeddings, given
+            different dimensions of configuration space and workspace in robotic manipulators.
+          </p>
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-full-width">
+            <img src="./static/images/02. SIMPNet-Structure.png"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."/>
+            <p align="center">Schematic of spatial-informed sampling heuristic within SIMPNet</p>
+          </div>
+        </div>
+        <!--Graph Representation-->
+        <h3 class="title is-4">Robotic Manipulator's Graph Representation.</h3>
+        <div class="content has-text-justified">
+          <p>
+            We build a graph that implicitly mimics the kinematic chain of the robotic manipulator.
+          </p>
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-full-width">
+            <img src="./static/images/02. SIMPNet-Structure.png"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."/>
+            <p align="center">Schematic of spatial-informed sampling heuristic within SIMPNet</p>
+          </div>
+        </div>
+        <br/>
+        <!--/ Interpolating. -->
+
+        <!-- Re-rendering. -->
+        <h3 class="title is-4">Re-rendering the input video</h3>
+        <div class="content has-text-justified">
+          <p>
+            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
+            viewpoint such as a stabilized camera by playing back the training deformations.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 width="75%">
+            <source src="./static/videos/replay.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <!--/ Re-rendering. -->
+
+      </div>
+    </div>
+    <!--/ Animation. -->
 
     <div class="columns is-centered">
 
